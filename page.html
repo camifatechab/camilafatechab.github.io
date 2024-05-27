@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW02 Camila Fatecha</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <style>
+        #hamburger{
+            font-size: 30px;
+            cursor: pointer;
+            padding-left: 15px;
+            color: white;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 170px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            /* background-color: #333; */
+            background-color: #3C5B6F;
+            /* overflow-x: hidden; */
+            transition: 0.5s;
+            padding-top: 40px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .sidebar a:hover{
+            background-color: white;
+            border-radius: 30px 10px 30px 10px;
+            color: #333;
+        }
+        .closebtn {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            font-size: 28px;
+        }
+        .sidebar {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 28px;
+        }
+
+        #main {
+            margin-left: 0px;
+            transition: margin-left 0.5s;
+            padding: 0px;
+        }
+
+        #canvasContainer {
+            width: 100%;
+            height: 400px;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .footer-logo img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <a href="#" class="closebtn" id="closebtn">&times;</a>
+        <a href="#" onclick="ShowMessage()">Show Text</a>
+        <a href="#" onclick="changeTheme()">Change Theme</a>
+        <a href="#" onclick="Refresh()">Refresh</a>
+        <a href="#" onclick="MusicOnOff()">Play/Stop Music</a>
+        <a href="#" class="footer-logo"><img src="https://raw.githubusercontent.com/camifatechab/camilafatechab.github.io/master/signature.png" width="100px" alt="Cami Signature" id="footerLogo"></a>
+    </div>
+
+    <div onclick="CloseSideBar()" id="main">
+        <span id="hamburger">&#9776;</span>
+        <div id="canvasContainer" style="position: absolute; top:0; z-index: -1;">
+            <script src="particle.js"></script>
+            <script src="sketch.js"></script>
+            <script src="tab.js"></script>
+            <script src="photo_utils.js"></script>
+            <script src="particle_photo.js"></script>
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.sound.js"></script> -->
+        </div>
+    </div>
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <script>
+        function CloseSideBar() {
+            if(document.getElementById("sidebar").offsetLeft == "0"){
+                document.getElementById("sidebar").style.left = "-250px";
+            }
+        }
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById("sidebar").style.left = "0";
+        });
+
+        closebtn.addEventListener('click', () => {
+            document.getElementById("sidebar").style.left = "-250px";
+        });
+    </script>
+</body>
+</html>
